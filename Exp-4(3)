@@ -1,0 +1,15 @@
+class Solution:
+    def repeatedStringMatch(self, a: str, b: str) -> int:
+        repeat_count = -(-len(b) // len(a))  # Minimum times a needs to be repeated
+        
+        if b in (a * repeat_count):
+            return repeat_count
+        if b in (a * (repeat_count + 1)):
+            return repeat_count + 1
+        
+        return -1
+
+# Example Usage:
+solution = Solution()
+print(solution.repeatedStringMatch("abcd", "cdabcdab"))  # Output: 3
+print(solution.repeatedStringMatch("a", "aa"))  # Output: 2
